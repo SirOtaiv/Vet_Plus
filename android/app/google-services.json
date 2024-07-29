@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "416266075576",
+    "project_id": "vet-plus-23656",
+    "storage_bucket": "vet-plus-23656.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416266075576:android:fce49ff2f19f771798e34d",
+        "android_client_info": {
+          "package_name": "rau.otavio.vet_plus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsotCmaab162MiyHpGQUVcioPPgbQUBkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
