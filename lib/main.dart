@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage("assets/logo_interno.png"))),
-                    height: 400,
+                    height: 350,
                     width: viewWidth,
                   ),
                   SizedBox(
