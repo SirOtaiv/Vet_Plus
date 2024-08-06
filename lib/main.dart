@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
@@ -22,8 +23,8 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color.fromARGB(255, 79, 191, 139),
           fontFamily: 'Kadawa',
           textTheme: const TextTheme(
-              titleLarge: TextStyle(fontSize: 32),
-              bodyLarge: TextStyle(fontSize: 24))),
+              titleLarge: TextStyle(fontSize: 32, color: Colors.white),
+              bodyLarge: TextStyle(fontSize: 24, color: Colors.white))),
       home: const MyHomePage(title: 'Vet Plus App Demo'),
     );
   }
@@ -69,20 +70,43 @@ class _MyHomePageState extends State<MyHomePage> {
                     decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage("assets/logo_interno.png"))),
-                    height: 224,
+                    height: 400,
                     width: viewWidth,
                   ),
                   SizedBox(
-                    width: 200,
+                    width: viewWidth * 0.8,
                     height: 80,
                     child: ElevatedButton(
                       onPressed: () => {},
                       style: ElevatedButton.styleFrom(
-                          side: const BorderSide(width: 6, color: Colors.white),
+                          shadowColor: Colors.black,
+                          backgroundColor: Colors.transparent,
+                          elevation: 25,
+                          side: const BorderSide(width: 5, color: Colors.white),
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10))),
+                              borderRadius: BorderRadius.circular(20))),
                       child: Text(
                         "LOGIN",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: viewHeigh * 0.08,
+                  ),
+                  SizedBox(
+                    width: viewWidth * 0.8,
+                    height: 80,
+                    child: ElevatedButton(
+                      onPressed: () => {},
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          elevation: 25,
+                          side: const BorderSide(width: 5, color: Colors.white),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
+                      child: Text(
+                        "REGISTER",
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
                     ),
