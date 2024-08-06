@@ -92,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: viewHeigh * 0.08,
+                    height: viewHeigh * 0.06,
                   ),
                   SizedBox(
                     width: viewWidth * 0.8,
