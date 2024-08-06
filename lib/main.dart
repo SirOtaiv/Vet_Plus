@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +15,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vet Plus',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 79, 191, 139)),
-        primaryColor: const Color.fromARGB(255, 79, 191, 139),
-        useMaterial3: true,
-        scaffoldBackgroundColor: const Color.fromARGB(255, 79, 191, 139),
-      ),
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 79, 191, 139)),
+          primaryColor: const Color.fromARGB(255, 79, 191, 139),
+          useMaterial3: true,
+          scaffoldBackgroundColor: const Color.fromARGB(255, 79, 191, 139),
+          fontFamily: 'Kadawa',
+          textTheme: const TextTheme(
+              titleLarge: TextStyle(fontSize: 32),
+              bodyLarge: TextStyle(fontSize: 24))),
       home: const MyHomePage(title: 'Vet Plus App Demo'),
     );
   }
@@ -36,22 +39,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _resetCounter() {
-    setState(() {
-      _counter = 0;
-    });
-  }
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final double viewHeigh = MediaQuery.of(context).size.height;
+    final double viewWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(children: [
         Container(
@@ -63,23 +55,38 @@ class _MyHomePageState extends State<MyHomePage> {
         Center(
             child: ClipRect(
           child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
             child: Container(
               decoration: const BoxDecoration(
                   color: Color.fromARGB(153, 79, 191, 139),
                   borderRadius: BorderRadius.all(Radius.circular(40))),
-              height: MediaQuery.of(context).size.height * 0.85,
-              width: MediaQuery.of(context).size.width * 0.85,
+              height: viewHeigh * 0.87,
+              width: viewWidth * 0.9,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
                     decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage("assets/logo_interno.png"),
-                            fit: BoxFit.contain)),
+                            image: AssetImage("assets/logo_interno.png"))),
+                    height: 224,
+                    width: viewWidth,
                   ),
-                  Text("JJJJJJJJJJJ")
+                  SizedBox(
+                    width: 200,
+                    height: 80,
+                    child: ElevatedButton(
+                      onPressed: () => {},
+                      style: ElevatedButton.styleFrom(
+                          side: const BorderSide(width: 6, color: Colors.white),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                      child: Text(
+                        "LOGIN",
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),
