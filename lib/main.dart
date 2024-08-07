@@ -1,7 +1,5 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(const MyApp());
@@ -81,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: ElevatedButton.styleFrom(
                           shadowColor: Colors.black,
                           backgroundColor: Colors.transparent,
-                          elevation: 25,
+                          elevation: 15,
                           side: const BorderSide(width: 5, color: Colors.white),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20))),
@@ -101,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () => {},
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
-                          elevation: 25,
+                          elevation: 15,
                           side: const BorderSide(width: 5, color: Colors.white),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20))),
