@@ -1,5 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:vet_plus/pages/login_page.dart';
+import 'package:vet_plus/navigation/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +24,9 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Kadawa',
           textTheme: const TextTheme(
               titleLarge: TextStyle(fontSize: 32, color: Colors.white),
-              bodyLarge: TextStyle(fontSize: 24, color: Colors.white))),
+              bodyLarge: TextStyle(fontSize: 24, color: Colors.white),
+              bodyMedium: TextStyle(fontSize: 32, color: Colors.red),
+              headlineLarge: TextStyle(fontSize: 32, color: Colors.black))),
       home: const MyHomePage(title: 'Vet Plus App Demo'),
     );
   }
@@ -42,6 +46,8 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final double viewHeigh = MediaQuery.of(context).size.height;
     final double viewWidth = MediaQuery.of(context).size.width;
+
+    Navigation router = Navigation();
 
     return Scaffold(
       body: Stack(children: [
@@ -73,14 +79,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SizedBox(
                     width: viewWidth * 0.8,
-                    height: 80,
+                    height: 70,
                     child: ElevatedButton(
-                      onPressed: () => {},
+                      onPressed: () => router.push(context, const LoginPage()),
                       style: ElevatedButton.styleFrom(
                           shadowColor: Colors.black,
                           backgroundColor: Colors.transparent,
-                          elevation: 15,
-                          side: const BorderSide(width: 5, color: Colors.white),
+                          elevation: 10,
+                          side: const BorderSide(width: 4, color: Colors.white),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20))),
                       child: Text(
@@ -94,13 +100,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SizedBox(
                     width: viewWidth * 0.8,
-                    height: 80,
+                    height: 70,
                     child: ElevatedButton(
                       onPressed: () => {},
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
-                          elevation: 15,
-                          side: const BorderSide(width: 5, color: Colors.white),
+                          elevation: 10,
+                          side: const BorderSide(width: 4, color: Colors.white),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20))),
                       child: Text(
