@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:vet_plus/configs/pages_configs.dart';
 import 'package:vet_plus/navigation/router.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     PagesConfigs config = PagesConfigs(context);
@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Text("TELA DE LOGIN"),
+                  const Text("TELA DE REGISTRO"),
                   Container(
                       width: config.viewWidth * 0.8,
                       height: 70,
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20))),
                         child: Text(
-                          "ENTRAR",
+                          "REGISTRAR",
                           style: Theme.of(context).textTheme.headlineLarge,
                         ),
                       )),
@@ -94,5 +94,6 @@ class _LoginPageState extends State<LoginPage> {
         )
       ],
     ));
+    ;
   }
 }

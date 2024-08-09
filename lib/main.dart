@@ -1,7 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:vet_plus/configs/pages_configs.dart';
 import 'package:vet_plus/pages/login_page.dart';
 import 'package:vet_plus/navigation/router.dart';
+import 'package:vet_plus/pages/register_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,8 +46,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final double viewHeigh = MediaQuery.of(context).size.height;
-    final double viewWidth = MediaQuery.of(context).size.width;
+    PagesConfigs config = PagesConfigs(context);
 
     Navigation router = Navigation();
 
@@ -65,8 +66,8 @@ class _MyHomePageState extends State<MyHomePage> {
               decoration: const BoxDecoration(
                   color: Color.fromARGB(153, 79, 191, 139),
                   borderRadius: BorderRadius.all(Radius.circular(40))),
-              height: viewHeigh * 0.87,
-              width: viewWidth * 0.9,
+              height: config.viewHeight * 0.87,
+              width: config.viewWidth * 0.9,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -75,10 +76,10 @@ class _MyHomePageState extends State<MyHomePage> {
                         image: DecorationImage(
                             image: AssetImage("assets/logo_interno.png"))),
                     height: 350,
-                    width: viewWidth,
+                    width: config.viewWidth,
                   ),
                   SizedBox(
-                    width: viewWidth * 0.8,
+                    width: config.viewWidth * 0.8,
                     height: 70,
                     child: ElevatedButton(
                       onPressed: () => router.push(context, const LoginPage()),
@@ -96,13 +97,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: viewHeigh * 0.06,
+                    height: config.viewHeight * 0.06,
                   ),
                   SizedBox(
-                    width: viewWidth * 0.8,
+                    width: config.viewWidth * 0.8,
                     height: 70,
                     child: ElevatedButton(
-                      onPressed: () => {},
+                      onPressed: () =>
+                          router.push(context, const RegisterPage()),
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.transparent,
                           elevation: 10,
@@ -121,19 +123,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         )),
       ]),
-
-      // persistentFooterButtons: [
-      //   FloatingActionButton(
-      //     onPressed: _resetCounter,
-      //     tooltip: 'Increment',
-      //     child: const Icon(Icons.replay_outlined),
-      //   ),
-      //   FloatingActionButton(
-      //     onPressed: _incrementCounter,
-      //     tooltip: 'Increment',
-      //     child: const Icon(Icons.add),
-      //   ),
-      // ],
     );
   }
 }
