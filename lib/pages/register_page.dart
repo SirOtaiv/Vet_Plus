@@ -13,7 +13,6 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     PagesConfigs config = PagesConfigs(context);
-
     Navigation router = Navigation();
 
     return Scaffold(
