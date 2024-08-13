@@ -12,6 +12,43 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   bool isPasswordVisible = false;
   bool isPersonRemembered = false;
+  String password = '';
+  String confirmPassword = '';
+  bool passwordsMatch = true;
+
+  // Função para validar a senha, em construção...
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Por favor, insira uma senha';
+    }
+    if (value.length < 8) {
+      return 'A senha deve ter pelo menos 8 caracteres';
+    }
+    if (!RegExp(r'[a-zA-Z]').hasMatch(value)) {
+      return 'A senha deve conter pelo menos uma letra';
+    }
+    if (!RegExp(r'[0-9]').hasMatch(value)) {
+      return 'A senha deve conter pelo menos um número';
+    }
+    if (!RegExp(r'[!@#\$&*~]').hasMatch(value)) {
+      return 'A senha deve conter pelo menos um caractere especial';
+    }
+    return null;
+  }
+
+  // Função para validar a confirmação da senha
+  String? validateConfirmPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Por favor, confirme sua senha';
+    }
+    if (value != password) {
+      setState(() {
+        passwordsMatch = false;
+      });
+      return 'As senhas não coincidem';
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +118,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           SizedBox(
                             width: screenConfig.viewWidth * 0.8,
-                            child: TextField(
+                            child: TextFormField(
                               obscureText: !isPasswordVisible,
                               decoration: InputDecoration(
                                 hintText: "Insira sua senha",
@@ -102,9 +139,18 @@ class _RegisterPageState extends State<RegisterPage> {
                                     });
                                   },
                                 ),
+                                errorText: passwordsMatch
+                                    ? null
+                                    : 'As senhas não coincidem',
                               ),
                               style: const TextStyle(color: Colors.black),
                               keyboardType: TextInputType.visiblePassword,
+                              validator: validatePassword,
+                              onChanged: (String value) {
+                                setState(() {
+                                  password = value;
+                                });
+                              },
                             ),
                           ),
                           const SizedBox(
@@ -121,7 +167,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           SizedBox(
                             width: screenConfig.viewWidth * 0.8,
-                            child: TextField(
+                            child: TextFormField(
                               obscureText: !isPasswordVisible,
                               decoration: InputDecoration(
                                 hintText: "Insira sua senha novamente",
@@ -142,9 +188,18 @@ class _RegisterPageState extends State<RegisterPage> {
                                     });
                                   },
                                 ),
+                                errorText: passwordsMatch
+                                    ? null
+                                    : 'As senhas não coincidem',
                               ),
                               style: const TextStyle(color: Colors.black),
                               keyboardType: TextInputType.visiblePassword,
+                              validator: validateConfirmPassword,
+                              onChanged: (String value) {
+                                setState(() {
+                                  confirmPassword = value;
+                                });
+                              },
                             ),
                           ),
                           SizedBox(
