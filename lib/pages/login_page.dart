@@ -49,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Email",
-                              style: Theme.of(context).textTheme.headlineLarge,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
                           SizedBox(
@@ -60,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
                                 hintStyle: TextStyle(fontSize: 24),
                                 prefixIcon: Icon(
                                   Icons.email_outlined,
-                                  size: 35,
+                                  size: 25,
                                 ),
                               ),
                               style: TextStyle(color: Colors.black),
@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Senha",
-                              style: Theme.of(context).textTheme.headlineLarge,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
                           SizedBox(
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                                 hintStyle: const TextStyle(fontSize: 24),
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
-                                  size: 35,
+                                  size: 25,
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
@@ -153,8 +153,10 @@ class _LoginPageState extends State<LoginPage> {
                                             BorderRadius.circular(20))),
                                 child: Text(
                                   "ENTRAR",
-                                  style:
-                                      Theme.of(context).textTheme.headlineLarge,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineLarge
+                                      ?.copyWith(color: Colors.black),
                                 ),
                               )),
                           SizedBox(
@@ -188,7 +190,8 @@ class _LoginPageState extends State<LoginPage> {
                                             BorderRadius.circular(20))),
                                 child: Text(
                                   "CANCELAR",
-                                  style: Theme.of(context).textTheme.titleLarge,
+                                  style:
+                                      Theme.of(context).textTheme.headlineLarge,
                                 ),
                               )),
                         ],

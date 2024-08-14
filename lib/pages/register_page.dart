@@ -86,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Email",
-                              style: Theme.of(context).textTheme.headlineLarge,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
                           SizedBox(
@@ -94,10 +94,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             child: const TextField(
                               decoration: InputDecoration(
                                 hintText: "Insira seu melhor email",
-                                hintStyle: TextStyle(fontSize: 24),
                                 prefixIcon: Icon(
                                   Icons.email_outlined,
-                                  size: 35,
+                                  size: 25,
                                 ),
                               ),
                               style: TextStyle(color: Colors.black),
@@ -113,7 +112,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Senha",
-                              style: Theme.of(context).textTheme.headlineLarge,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
                           SizedBox(
@@ -122,10 +121,9 @@ class _RegisterPageState extends State<RegisterPage> {
                               obscureText: !isPasswordVisible,
                               decoration: InputDecoration(
                                 hintText: "Insira sua senha",
-                                hintStyle: const TextStyle(fontSize: 24),
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
-                                  size: 35,
+                                  size: 25,
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
@@ -162,7 +160,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Senha Novamente",
-                              style: Theme.of(context).textTheme.headlineLarge,
+                              style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
                           SizedBox(
@@ -171,10 +169,9 @@ class _RegisterPageState extends State<RegisterPage> {
                               obscureText: !isPasswordVisible,
                               decoration: InputDecoration(
                                 hintText: "Insira sua senha novamente",
-                                hintStyle: const TextStyle(fontSize: 24),
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
-                                  size: 35,
+                                  size: 25,
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
@@ -248,8 +245,10 @@ class _RegisterPageState extends State<RegisterPage> {
                                             BorderRadius.circular(20))),
                                 child: Text(
                                   "REGISTRAR",
-                                  style:
-                                      Theme.of(context).textTheme.headlineLarge,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .headlineLarge
+                                      ?.copyWith(color: Colors.black),
                                 ),
                               )),
                           SizedBox(
@@ -283,7 +282,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                             BorderRadius.circular(20))),
                                 child: Text(
                                   "CANCELAR",
-                                  style: Theme.of(context).textTheme.titleLarge,
+                                  style:
+                                      Theme.of(context).textTheme.headlineLarge,
                                 ),
                               )),
                         ],

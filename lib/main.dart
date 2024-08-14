@@ -25,10 +25,11 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: const Color.fromARGB(255, 79, 191, 139),
           fontFamily: 'Kadawa',
           textTheme: const TextTheme(
-              titleLarge: TextStyle(fontSize: 32, color: Colors.white),
-              bodyLarge: TextStyle(fontSize: 24, color: Colors.white),
-              bodyMedium: TextStyle(fontSize: 32, color: Colors.red),
-              headlineLarge: TextStyle(fontSize: 32, color: Colors.black))),
+            titleLarge: TextStyle(color: Colors.black),
+            bodyLarge: TextStyle(color: Colors.white),
+            bodyMedium: TextStyle(color: Colors.red),
+            headlineLarge: TextStyle(color: Colors.white),
+          )),
       home: const MyHomePage(title: 'Vet Plus App Demo'),
     );
   }
@@ -92,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               borderRadius: BorderRadius.circular(20))),
                       child: Text(
                         "LOGIN",
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: Theme.of(context).textTheme.headlineLarge,
                       ),
                     ),
                   ),
@@ -113,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               borderRadius: BorderRadius.circular(20))),
                       child: Text(
                         "REGISTER",
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: Theme.of(context).textTheme.headlineLarge,
                       ),
                     ),
                   )
