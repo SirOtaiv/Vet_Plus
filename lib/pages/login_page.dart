@@ -58,19 +58,19 @@ class _LoginPageState extends State<LoginPage> {
                             child: const TextField(
                               decoration: InputDecoration(
                                 hintText: "Insira seu melhor email",
-                                hintStyle: TextStyle(fontSize: 25),
+                                hintStyle: TextStyle(fontSize: 20),
                                 prefixIcon: Icon(
                                   Icons.email_outlined,
                                   size: 35,
                                 ),
                               ),
                               style:
-                                  TextStyle(color: Colors.black, fontSize: 25),
+                                  TextStyle(color: Colors.black, fontSize: 20),
                               keyboardType: TextInputType.emailAddress,
                             ),
                           ),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           Container(
                             width: screenConfig.viewWidth * 0.8,
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                               obscureText: !isPasswordVisible,
                               decoration: InputDecoration(
                                 hintText: "Insira sua senha",
-                                hintStyle: const TextStyle(fontSize: 25),
+                                hintStyle: const TextStyle(fontSize: 20),
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
                                   size: 35,
@@ -107,20 +107,17 @@ class _LoginPageState extends State<LoginPage> {
                                 ),
                               ),
                               style: const TextStyle(
-                                  color: Colors.black, fontSize: 25),
+                                  color: Colors.black, fontSize: 20),
                               keyboardType: TextInputType.visiblePassword,
                             ),
                           ),
-                          const SizedBox(
-                            height: 15,
-                          ),
                           SizedBox(
                             height: 60,
-                            width: screenConfig.viewWidth * 0.8,
+                            width: screenConfig.viewWidth * 0.9,
                             child: CheckboxTile(
                               title: const Text(
                                 "Permanecer conectado",
-                                style: TextStyle(fontSize: 28),
+                                style: TextStyle(fontSize: 20),
                               ),
                               iconSize: 32,
                               value: isPersonRemembered,

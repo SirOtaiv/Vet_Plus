@@ -83,7 +83,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           Container(
                             width: screenConfig.viewWidth * 0.8,
-                            height: 50,
+                            height: 30,
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Email",
@@ -97,20 +97,20 @@ class _RegisterPageState extends State<RegisterPage> {
                                 hintText: "Insira seu melhor email",
                                 prefixIcon: Icon(
                                   Icons.email_outlined,
-                                  size: 35,
+                                  size: 32,
                                 ),
                               ),
                               style:
-                                  TextStyle(color: Colors.black, fontSize: 25),
+                                  TextStyle(color: Colors.black, fontSize: 20),
                               keyboardType: TextInputType.emailAddress,
                             ),
                           ),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           Container(
                             width: screenConfig.viewWidth * 0.8,
-                            height: 50,
+                            height: 30,
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Senha",
@@ -125,14 +125,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 hintText: "Insira sua senha",
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
-                                  size: 35,
+                                  size: 32,
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
                                     isPasswordVisible
                                         ? Icons.visibility
                                         : Icons.visibility_off,
-                                    size: 35,
+                                    size: 32,
                                   ),
                                   onPressed: () {
                                     setState(() {
@@ -145,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     : 'As senhas não coincidem',
                               ),
                               style: const TextStyle(
-                                  color: Colors.black, fontSize: 25),
+                                  color: Colors.black, fontSize: 20),
                               keyboardType: TextInputType.visiblePassword,
                               validator: validatePassword,
                               onChanged: (String value) {
@@ -156,11 +156,11 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 30,
+                            height: 15,
                           ),
                           Container(
                             width: screenConfig.viewWidth * 0.8,
-                            height: 50,
+                            height: 30,
                             alignment: Alignment.centerLeft,
                             child: Text(
                               "Senha Novamente",
@@ -175,14 +175,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 hintText: "Insira sua senha novamente",
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
-                                  size: 35,
+                                  size: 32,
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
                                     isPasswordVisible
                                         ? Icons.visibility
                                         : Icons.visibility_off,
-                                    size: 35,
+                                    size: 32,
                                   ),
                                   onPressed: () {
                                     setState(() {
@@ -195,7 +195,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                     : 'As senhas não coincidem',
                               ),
                               style: const TextStyle(
-                                  color: Colors.black, fontSize: 25),
+                                  color: Colors.black, fontSize: 20),
                               keyboardType: TextInputType.visiblePassword,
                               validator: validateConfirmPassword,
                               onChanged: (String value) {
@@ -205,16 +205,13 @@ class _RegisterPageState extends State<RegisterPage> {
                               },
                             ),
                           ),
-                          const SizedBox(
-                            height: 15,
-                          ),
                           SizedBox(
                             height: 60,
-                            width: screenConfig.viewWidth * 0.8,
+                            width: screenConfig.viewWidth * 0.9,
                             child: CheckboxTile(
                               title: const Text(
                                 "Permanecer conectado",
-                                style: TextStyle(fontSize: 28),
+                                style: TextStyle(fontSize: 20),
                               ),
                               iconSize: 32,
                               value: isPersonRemembered,
