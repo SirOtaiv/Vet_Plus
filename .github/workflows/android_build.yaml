@@ -2,12 +2,8 @@ name: Flutter CI - Build Android App
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-  # push:
-  #   tags:
-  #     - '*'
+    tags:
+      - '*'
 
 jobs:
   build:
