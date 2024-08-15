@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vet_plus/components/checkbox_tile.dart';
+import 'package:vet_plus/components/widgets/checkbox_tile.dart';
 import 'package:vet_plus/configs/pages_configs.dart';
 import 'package:vet_plus/navigation/router.dart';
 
