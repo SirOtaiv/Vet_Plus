@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vet_plus/components/checkbox_tile.dart';
 import 'package:vet_plus/configs/pages_configs.dart';
 import 'package:vet_plus/navigation/router.dart';
 
@@ -96,10 +97,11 @@ class _RegisterPageState extends State<RegisterPage> {
                                 hintText: "Insira seu melhor email",
                                 prefixIcon: Icon(
                                   Icons.email_outlined,
-                                  size: 25,
+                                  size: 35,
                                 ),
                               ),
-                              style: TextStyle(color: Colors.black),
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 25),
                               keyboardType: TextInputType.emailAddress,
                             ),
                           ),
@@ -123,13 +125,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 hintText: "Insira sua senha",
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
-                                  size: 25,
+                                  size: 35,
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
                                     isPasswordVisible
                                         ? Icons.visibility
                                         : Icons.visibility_off,
+                                    size: 35,
                                   ),
                                   onPressed: () {
                                     setState(() {
@@ -141,7 +144,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                     ? null
                                     : 'As senhas não coincidem',
                               ),
-                              style: const TextStyle(color: Colors.black),
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 25),
                               keyboardType: TextInputType.visiblePassword,
                               validator: validatePassword,
                               onChanged: (String value) {
@@ -171,13 +175,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 hintText: "Insira sua senha novamente",
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
-                                  size: 25,
+                                  size: 35,
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
                                     isPasswordVisible
                                         ? Icons.visibility
                                         : Icons.visibility_off,
+                                    size: 35,
                                   ),
                                   onPressed: () {
                                     setState(() {
@@ -189,7 +194,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                     ? null
                                     : 'As senhas não coincidem',
                               ),
-                              style: const TextStyle(color: Colors.black),
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 25),
                               keyboardType: TextInputType.visiblePassword,
                               validator: validateConfirmPassword,
                               onChanged: (String value) {
@@ -199,17 +205,25 @@ class _RegisterPageState extends State<RegisterPage> {
                               },
                             ),
                           ),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           SizedBox(
-                            height: 50,
+                            height: 60,
                             width: screenConfig.viewWidth * 0.8,
-                            child: CheckboxListTile(
-                              title: const Text("Permanecer conectado"),
+                            child: CheckboxTile(
+                              title: const Text(
+                                "Permanecer conectado",
+                                style: TextStyle(fontSize: 28),
+                              ),
+                              iconSize: 32,
                               value: isPersonRemembered,
                               onChanged: (bool? value) {
                                 setState(() {
                                   isPersonRemembered = value!;
                                 });
                               },
+                              selected: isPersonRemembered,
                               controlAffinity: ListTileControlAffinity.leading,
                               activeColor:
                                   const Color.fromARGB(255, 79, 191, 139),

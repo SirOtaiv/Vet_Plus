@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vet_plus/components/checkbox_tile.dart';
 import 'package:vet_plus/configs/pages_configs.dart';
 import 'package:vet_plus/navigation/router.dart';
 
@@ -57,13 +58,14 @@ class _LoginPageState extends State<LoginPage> {
                             child: const TextField(
                               decoration: InputDecoration(
                                 hintText: "Insira seu melhor email",
-                                hintStyle: TextStyle(fontSize: 24),
+                                hintStyle: TextStyle(fontSize: 25),
                                 prefixIcon: Icon(
                                   Icons.email_outlined,
-                                  size: 25,
+                                  size: 35,
                                 ),
                               ),
-                              style: TextStyle(color: Colors.black),
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 25),
                               keyboardType: TextInputType.emailAddress,
                             ),
                           ),
@@ -85,16 +87,17 @@ class _LoginPageState extends State<LoginPage> {
                               obscureText: !isPasswordVisible,
                               decoration: InputDecoration(
                                 hintText: "Insira sua senha",
-                                hintStyle: const TextStyle(fontSize: 24),
+                                hintStyle: const TextStyle(fontSize: 25),
                                 prefixIcon: const Icon(
                                   Icons.lock_outline_rounded,
-                                  size: 25,
+                                  size: 35,
                                 ),
                                 suffixIcon: IconButton(
                                   icon: Icon(
                                     isPasswordVisible
                                         ? Icons.visibility
                                         : Icons.visibility_off,
+                                    size: 35,
                                   ),
                                   onPressed: () {
                                     setState(() {
@@ -103,21 +106,30 @@ class _LoginPageState extends State<LoginPage> {
                                   },
                                 ),
                               ),
-                              style: const TextStyle(color: Colors.black),
+                              style: const TextStyle(
+                                  color: Colors.black, fontSize: 25),
                               keyboardType: TextInputType.visiblePassword,
                             ),
                           ),
+                          const SizedBox(
+                            height: 15,
+                          ),
                           SizedBox(
-                            height: 50,
+                            height: 60,
                             width: screenConfig.viewWidth * 0.8,
-                            child: CheckboxListTile(
-                              title: const Text("Permanecer conectado"),
+                            child: CheckboxTile(
+                              title: const Text(
+                                "Permanecer conectado",
+                                style: TextStyle(fontSize: 28),
+                              ),
+                              iconSize: 32,
                               value: isPersonRemembered,
                               onChanged: (bool? value) {
                                 setState(() {
                                   isPersonRemembered = value!;
                                 });
                               },
+                              selected: isPersonRemembered,
                               controlAffinity: ListTileControlAffinity.leading,
                               activeColor:
                                   const Color.fromARGB(255, 79, 191, 139),
