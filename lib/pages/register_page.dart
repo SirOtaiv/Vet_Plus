@@ -207,7 +207,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           SizedBox(
                             height: 60,
-                            width: screenConfig.viewWidth * 0.9,
+                            width: screenConfig.viewWidth * 0.85,
                             child: CheckboxTile(
                               title: const Text(
                                 "Permanecer conectado",
