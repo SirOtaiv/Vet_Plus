@@ -22,18 +22,28 @@ class PasswordField extends StatelessWidget {
     this.onChange,
   }) : super(key: key);
 
-  //  String? validateConfirmPassword(String? value) {
-  //   if (value == null || value.isEmpty) {
-  //     return 'Por favor, confirme sua senha';
-  //   }
-  //   if (value != "") {
-  //     setState(() {
-  //       passwordsMatch = false;
-  //     });
-  //     return 'As senhas não coincidem';
-  //   }
-  //   return null;
-  // }
+  String? validatePassword(String? value) {
+    if (value != null) {
+      String validateMessage = '';
+      if (value.length < 8) {
+        validateMessage = '$validateMessage 8 caracteres';
+      }
+      if (!RegExp(r'[a-zA-Z]').hasMatch(value)) {
+        validateMessage = '$validateMessage, uma letra';
+      }
+      if (!RegExp(r'[0-9]').hasMatch(value)) {
+        validateMessage = '$validateMessage, um número';
+      }
+      if (!RegExp(r'[!@#\$&*~]').hasMatch(value)) {
+        validateMessage = '$validateMessage, um simbolo';
+      }
+      if (validateMessage == '') {
+        return null;
+      }
+      return validateMessage;
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +52,7 @@ class PasswordField extends StatelessWidget {
       child: TextFormField(
         obscureText: !obscureText,
         decoration: InputDecoration(
-          hintText: "Insira sua senha novamente",
+          hintText: "Texto de Dentro do campo",
           prefixIcon: const Icon(
             Icons.lock_outline_rounded,
             size: 32,
@@ -54,11 +64,12 @@ class PasswordField extends StatelessWidget {
             ),
             onPressed: onPressed,
           ),
-          errorText: 'As senhas não coincidem',
+          // errorText: 'As senhas não coincidem',
         ),
         style: const TextStyle(color: Colors.black, fontSize: 20),
         keyboardType: TextInputType.visiblePassword,
-        validator: validator,
+        validator: (valid) => validatePassword(valid),
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         onChanged: onChange,
       ),
     );

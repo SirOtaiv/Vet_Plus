@@ -19,26 +19,6 @@ class _RegisterPageState extends State<RegisterPage> {
   String confirmPassword = '';
   bool passwordsMatch = true;
 
-  // Função para validar a senha, em construção...
-  String? validatePassword(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Por favor, insira uma senha';
-    }
-    if (value.length < 8) {
-      return 'A senha deve ter pelo menos 8 caracteres';
-    }
-    if (!RegExp(r'[a-zA-Z]').hasMatch(value)) {
-      return 'A senha deve conter pelo menos uma letra';
-    }
-    if (!RegExp(r'[0-9]').hasMatch(value)) {
-      return 'A senha deve conter pelo menos um número';
-    }
-    if (!RegExp(r'[!@#\$&*~]').hasMatch(value)) {
-      return 'A senha deve conter pelo menos um caractere especial';
-    }
-    return null;
-  }
-
   // Função para validar a confirmação da senha
   String? validateConfirmPassword(String? value) {
     if (value == null || value.isEmpty) {
@@ -149,7 +129,6 @@ class _RegisterPageState extends State<RegisterPage> {
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 20),
                               keyboardType: TextInputType.visiblePassword,
-                              validator: validatePassword,
                               onChanged: (String value) {
                                 setState(() {
                                   password = value;
