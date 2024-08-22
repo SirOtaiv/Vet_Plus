@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vet_plus/components/checkbox/checkbox_tile.dart';
+import 'package:vet_plus/components/textfields/password_field.dart';
 import 'package:vet_plus/configs/pages_configs.dart';
 import 'package:vet_plus/navigation/router.dart';
 
@@ -155,6 +157,15 @@ class _RegisterPageState extends State<RegisterPage> {
                               },
                             ),
                           ),
+                          PasswordField(
+                            obscureText: isPasswordVisible,
+                            onPressed: () {
+                              setState(() {
+                                isPasswordVisible = !isPasswordVisible;
+                              });
+                            },
+                            width: screenConfig.viewWidth * 0.8,
+                          ),
                           const SizedBox(
                             height: 15,
                           ),
@@ -197,7 +208,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               style: const TextStyle(
                                   color: Colors.black, fontSize: 20),
                               keyboardType: TextInputType.visiblePassword,
-                              validator: validateConfirmPassword,
+                              validator: (String? exe) => exe,
                               onChanged: (String value) {
                                 setState(() {
                                   confirmPassword = value;
@@ -246,7 +257,23 @@ class _RegisterPageState extends State<RegisterPage> {
                                     Color.fromARGB(255, 214, 134, 28)
                                   ])),
                               child: ElevatedButton(
-                                onPressed: () => {},
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => AlertDialog(
+                                            title: const Text('Alert De teste'),
+                                            content: const Text(
+                                                'This is a alert testing the value of the return'),
+                                            actions: [
+                                              TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          context, 'OK'),
+                                                  child: Text("Registrar")),
+                                            ],
+                                            elevation: 24.0,
+                                          ));
+                                },
                                 style: ElevatedButton.styleFrom(
                                     shadowColor: Colors.transparent,
                                     backgroundColor: Colors.transparent,
