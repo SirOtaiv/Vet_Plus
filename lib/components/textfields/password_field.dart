@@ -6,6 +6,7 @@ class PasswordField extends StatelessWidget {
   final double? iconsSize;
   final double? height;
   final double? width;
+  final double? fontSize;
   final void Function()? onPressed;
   final FormFieldValidator<String?>? validator;
   final ValueChanged<String>? onChange;
@@ -18,30 +19,37 @@ class PasswordField extends StatelessWidget {
     this.height,
     required this.width,
     required this.onPressed,
+    this.fontSize,
     this.validator,
     this.onChange,
   }) : super(key: key);
 
   String? validatePassword(String? value) {
     if (value != null) {
-      String validateMessage = '';
+      List<String> requirements = [];
+
       if (value.length < 8) {
-        validateMessage = '$validateMessage 8 caracteres';
+        requirements.add('8 caracteres');
       }
       if (!RegExp(r'[a-zA-Z]').hasMatch(value)) {
-        validateMessage = '$validateMessage, uma letra';
+        requirements.add('uma letra');
       }
       if (!RegExp(r'[0-9]').hasMatch(value)) {
-        validateMessage = '$validateMessage, um número';
+        requirements.add('um número');
       }
       if (!RegExp(r'[!@#\$&*~]').hasMatch(value)) {
-        validateMessage = '$validateMessage, um simbolo';
+        requirements.add('um símbolo');
       }
-      if (validateMessage == '') {
+
+      if (requirements.isEmpty) {
         return null;
       }
+
+      String validateMessage =
+          'Senha precisa ter pelo menos:\n${requirements.join(', ')}';
       return validateMessage;
     }
+
     return null;
   }
 
@@ -52,21 +60,22 @@ class PasswordField extends StatelessWidget {
       child: TextFormField(
         obscureText: !obscureText,
         decoration: InputDecoration(
-          hintText: "Texto de Dentro do campo",
-          prefixIcon: const Icon(
-            Icons.lock_outline_rounded,
-            size: 32,
-          ),
-          suffixIcon: IconButton(
-            icon: Icon(
-              obscureText ? Icons.visibility : Icons.visibility_off,
-              size: 32,
+            hintText: hintText,
+            prefixIcon: Icon(
+              Icons.lock_outline_rounded,
+              size: iconsSize ?? 30,
             ),
-            onPressed: onPressed,
-          ),
-          // errorText: 'As senhas não coincidem',
-        ),
-        style: const TextStyle(color: Colors.black, fontSize: 20),
+            suffixIcon: IconButton(
+              icon: Icon(
+                obscureText ? Icons.visibility : Icons.visibility_off,
+                size: iconsSize ?? 30,
+              ),
+              onPressed: onPressed,
+            ),
+            contentPadding: const EdgeInsets.only(top: 14)
+            // errorText: 'As senhas não coincidem',
+            ),
+        style: TextStyle(color: Colors.black, fontSize: fontSize ?? 17),
         keyboardType: TextInputType.visiblePassword,
         validator: (valid) => validatePassword(valid),
         autovalidateMode: AutovalidateMode.onUserInteraction,

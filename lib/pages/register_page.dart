@@ -60,7 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                 image: DecorationImage(
                                     image: AssetImage(
                                         "assets/vetplustexticon.png"))),
-                            height: 160,
+                            height: 130,
                             width: screenConfig.viewWidth * 0.8,
                           ),
                           Container(
@@ -81,9 +81,9 @@ class _RegisterPageState extends State<RegisterPage> {
                                   Icons.email_outlined,
                                   size: 32,
                                 ),
+                                contentPadding: EdgeInsets.only(top: 14),
                               ),
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
+                              style: TextStyle(color: Colors.black),
                               keyboardType: TextInputType.emailAddress,
                             ),
                           ),
@@ -99,51 +99,16 @@ class _RegisterPageState extends State<RegisterPage> {
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
-                          SizedBox(
-                            width: screenConfig.viewWidth * 0.8,
-                            child: TextFormField(
-                              obscureText: !isPasswordVisible,
-                              decoration: InputDecoration(
-                                hintText: "Insira sua senha",
-                                prefixIcon: const Icon(
-                                  Icons.lock_outline_rounded,
-                                  size: 32,
-                                ),
-                                suffixIcon: IconButton(
-                                  icon: Icon(
-                                    isPasswordVisible
-                                        ? Icons.visibility
-                                        : Icons.visibility_off,
-                                    size: 32,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      isPasswordVisible = !isPasswordVisible;
-                                    });
-                                  },
-                                ),
-                                errorText: passwordsMatch
-                                    ? null
-                                    : 'As senhas não coincidem',
-                              ),
-                              style: const TextStyle(
-                                  color: Colors.black, fontSize: 20),
-                              keyboardType: TextInputType.visiblePassword,
-                              onChanged: (String value) {
-                                setState(() {
-                                  password = value;
-                                });
-                              },
-                            ),
-                          ),
                           PasswordField(
                             obscureText: isPasswordVisible,
+                            hintText: "Insira sua Senha",
                             onPressed: () {
                               setState(() {
                                 isPasswordVisible = !isPasswordVisible;
                               });
                             },
                             width: screenConfig.viewWidth * 0.8,
+                            fontSize: 17,
                           ),
                           const SizedBox(
                             height: 15,
@@ -157,43 +122,15 @@ class _RegisterPageState extends State<RegisterPage> {
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
-                          SizedBox(
+                          PasswordField(
+                            obscureText: isPasswordVisible,
+                            hintText: "Insira sua Senha novamente",
+                            onPressed: () {
+                              setState(() {
+                                isPasswordVisible = !isPasswordVisible;
+                              });
+                            },
                             width: screenConfig.viewWidth * 0.8,
-                            child: TextFormField(
-                              obscureText: !isPasswordVisible,
-                              decoration: InputDecoration(
-                                hintText: "Insira sua senha novamente",
-                                prefixIcon: const Icon(
-                                  Icons.lock_outline_rounded,
-                                  size: 32,
-                                ),
-                                suffixIcon: IconButton(
-                                  icon: Icon(
-                                    isPasswordVisible
-                                        ? Icons.visibility
-                                        : Icons.visibility_off,
-                                    size: 32,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      isPasswordVisible = !isPasswordVisible;
-                                    });
-                                  },
-                                ),
-                                errorText: passwordsMatch
-                                    ? null
-                                    : 'As senhas não coincidem',
-                              ),
-                              style: const TextStyle(
-                                  color: Colors.black, fontSize: 20),
-                              keyboardType: TextInputType.visiblePassword,
-                              validator: (String? exe) => exe,
-                              onChanged: (String value) {
-                                setState(() {
-                                  confirmPassword = value;
-                                });
-                              },
-                            ),
                           ),
                           SizedBox(
                             height: 60,
@@ -201,9 +138,8 @@ class _RegisterPageState extends State<RegisterPage> {
                             child: CheckboxTile(
                               title: const Text(
                                 "Permanecer conectado",
-                                style: TextStyle(fontSize: 20),
                               ),
-                              iconSize: 32,
+                              iconSize: 26,
                               value: isPersonRemembered,
                               onChanged: (bool? value) {
                                 setState(() {
@@ -217,7 +153,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 40,
+                            height: 30,
                           ),
                           Container(
                               width: screenConfig.viewWidth * 0.8,
@@ -248,7 +184,8 @@ class _RegisterPageState extends State<RegisterPage> {
                                                   onPressed: () =>
                                                       Navigator.pop(
                                                           context, 'OK'),
-                                                  child: Text("Registrar")),
+                                                  child:
+                                                      const Text("Registrar")),
                                             ],
                                             elevation: 24.0,
                                           ));
