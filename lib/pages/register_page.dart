@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vet_plus/components/checkbox/checkbox_tile.dart';
 import 'package:vet_plus/components/textfields/password_field.dart';
@@ -81,7 +80,7 @@ class _RegisterPageState extends State<RegisterPage> {
                                   Icons.email_outlined,
                                   size: 32,
                                 ),
-                                contentPadding: EdgeInsets.only(top: 14),
+                                contentPadding: EdgeInsets.only(top: 12),
                               ),
                               style: TextStyle(color: Colors.black),
                               keyboardType: TextInputType.emailAddress,
@@ -133,13 +132,14 @@ class _RegisterPageState extends State<RegisterPage> {
                             width: screenConfig.viewWidth * 0.8,
                           ),
                           SizedBox(
-                            height: 60,
-                            width: screenConfig.viewWidth * 0.85,
+                            height: 40,
+                            width: screenConfig.viewWidth * 0.8,
                             child: CheckboxTile(
                               title: const Text(
                                 "Permanecer conectado",
+                                style: TextStyle(fontSize: 18),
                               ),
-                              iconSize: 26,
+                              iconSize: 30,
                               value: isPersonRemembered,
                               onChanged: (bool? value) {
                                 setState(() {
@@ -153,11 +153,11 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           const SizedBox(
-                            height: 30,
+                            height: 40,
                           ),
                           Container(
                               width: screenConfig.viewWidth * 0.8,
-                              height: 70,
+                              height: 60,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   boxShadow: const [
@@ -177,15 +177,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                       context: context,
                                       builder: (_) => AlertDialog(
                                             title: const Text('Alert De teste'),
-                                            content: const Text(
-                                                'This is a alert testing the value of the return'),
+                                            content:
+                                                const Text('You are registred'),
                                             actions: [
                                               TextButton(
                                                   onPressed: () =>
                                                       Navigator.pop(
                                                           context, 'OK'),
-                                                  child:
-                                                      const Text("Registrar")),
+                                                  child: const Text("Aceitar")),
                                             ],
                                             elevation: 24.0,
                                           ));
@@ -211,7 +210,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           Container(
                               width: screenConfig.viewWidth * 0.8,
-                              height: 70,
+                              height: 60,
                               decoration: BoxDecoration(
                                   boxShadow: const [
                                     BoxShadow(

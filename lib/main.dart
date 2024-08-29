@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SizedBox(
                     width: config.viewWidth * 0.8,
-                    height: 70,
+                    height: 60,
                     child: ElevatedButton(
                       onPressed: () => router.push(context, const LoginPage()),
                       style: ElevatedButton.styleFrom(
@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   SizedBox(
                     width: config.viewWidth * 0.8,
-                    height: 70,
+                    height: 60,
                     child: ElevatedButton(
                       onPressed: () =>
                           router.push(context, const RegisterPage()),

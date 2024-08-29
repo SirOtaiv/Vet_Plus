@@ -7,6 +7,7 @@ class PasswordField extends StatelessWidget {
   final double? height;
   final double? width;
   final double? fontSize;
+  final bool? isPasswordValidated;
   final void Function()? onPressed;
   final FormFieldValidator<String?>? validator;
   final ValueChanged<String>? onChange;
@@ -20,12 +21,13 @@ class PasswordField extends StatelessWidget {
     required this.width,
     required this.onPressed,
     this.fontSize,
+    this.isPasswordValidated = true,
     this.validator,
     this.onChange,
   }) : super(key: key);
 
   String? validatePassword(String? value) {
-    if (value != null) {
+    if (value != null && isPasswordValidated!) {
       List<String> requirements = [];
 
       if (value.length < 8) {

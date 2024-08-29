@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vet_plus/components/checkbox/checkbox_tile.dart';
+import 'package:vet_plus/components/textfields/password_field.dart';
 import 'package:vet_plus/configs/pages_configs.dart';
 import 'package:vet_plus/navigation/router.dart';
 
@@ -58,14 +59,13 @@ class _LoginPageState extends State<LoginPage> {
                             child: const TextField(
                               decoration: InputDecoration(
                                 hintText: "Insira seu melhor email",
-                                hintStyle: TextStyle(fontSize: 20),
                                 prefixIcon: Icon(
                                   Icons.email_outlined,
-                                  size: 35,
+                                  size: 32,
                                 ),
+                                contentPadding: EdgeInsets.only(top: 12),
                               ),
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 20),
+                              style: TextStyle(color: Colors.black),
                               keyboardType: TextInputType.emailAddress,
                             ),
                           ),
@@ -81,45 +81,26 @@ class _LoginPageState extends State<LoginPage> {
                               style: Theme.of(context).textTheme.titleLarge,
                             ),
                           ),
-                          SizedBox(
+                          PasswordField(
+                            obscureText: isPasswordVisible,
+                            hintText: "Insira sua Senha novamente",
+                            isPasswordValidated: false,
+                            onPressed: () {
+                              setState(() {
+                                isPasswordVisible = !isPasswordVisible;
+                              });
+                            },
                             width: screenConfig.viewWidth * 0.8,
-                            child: TextField(
-                              obscureText: !isPasswordVisible,
-                              decoration: InputDecoration(
-                                hintText: "Insira sua senha",
-                                hintStyle: const TextStyle(fontSize: 20),
-                                prefixIcon: const Icon(
-                                  Icons.lock_outline_rounded,
-                                  size: 35,
-                                ),
-                                suffixIcon: IconButton(
-                                  icon: Icon(
-                                    isPasswordVisible
-                                        ? Icons.visibility
-                                        : Icons.visibility_off,
-                                    size: 35,
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      isPasswordVisible = !isPasswordVisible;
-                                    });
-                                  },
-                                ),
-                              ),
-                              style: const TextStyle(
-                                  color: Colors.black, fontSize: 20),
-                              keyboardType: TextInputType.visiblePassword,
-                            ),
                           ),
                           SizedBox(
-                            height: 60,
-                            width: screenConfig.viewWidth * 0.85,
+                            height: 40,
+                            width: screenConfig.viewWidth * 0.8,
                             child: CheckboxTile(
                               title: const Text(
                                 "Permanecer conectado",
-                                style: TextStyle(fontSize: 20),
+                                style: TextStyle(fontSize: 18),
                               ),
-                              iconSize: 32,
+                              iconSize: 30,
                               value: isPersonRemembered,
                               onChanged: (bool? value) {
                                 setState(() {
@@ -137,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           Container(
                               width: screenConfig.viewWidth * 0.8,
-                              height: 70,
+                              height: 60,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   boxShadow: const [
@@ -152,7 +133,23 @@ class _LoginPageState extends State<LoginPage> {
                                     Color.fromARGB(255, 214, 134, 28)
                                   ])),
                               child: ElevatedButton(
-                                onPressed: () => {},
+                                onPressed: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (_) => AlertDialog(
+                                            title: const Text('Alert De teste'),
+                                            content:
+                                                const Text('You are Logged in'),
+                                            actions: [
+                                              TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          context, 'OK'),
+                                                  child: const Text("Aceitar")),
+                                            ],
+                                            elevation: 24.0,
+                                          ));
+                                },
                                 style: ElevatedButton.styleFrom(
                                     shadowColor: Colors.transparent,
                                     backgroundColor: Colors.transparent,
@@ -174,7 +171,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           Container(
                               width: screenConfig.viewWidth * 0.8,
-                              height: 70,
+                              height: 60,
                               decoration: BoxDecoration(
                                   boxShadow: const [
                                     BoxShadow(

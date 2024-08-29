@@ -77,6 +77,7 @@ class CheckboxTile extends StatelessWidget {
       child: ListTile(
         leading: leading,
         title: title,
+        contentPadding: const EdgeInsets.only(top: 2),
         subtitle: subtitle,
         trailing: trailing,
         selected: selected,
