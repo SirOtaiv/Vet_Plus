@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vet_plus/components/alerts/alert_dialog.dart';
 import 'package:vet_plus/components/checkbox/checkbox_tile.dart';
 import 'package:vet_plus/components/textfields/password_field.dart';
 import 'package:vet_plus/configs/pages_configs.dart';
@@ -19,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     PagesConfigs screenConfig = PagesConfigs(context);
     Navigation router = Navigation();
+    AlertDialogContext dialogContext = AlertDialogContext(context);
 
     return Scaffold(
         body: GestureDetector(
@@ -133,23 +135,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Color.fromARGB(255, 214, 134, 28)
                                   ])),
                               child: ElevatedButton(
-                                onPressed: () {
-                                  showDialog(
-                                      context: context,
-                                      builder: (_) => AlertDialog(
-                                            title: const Text('Alert De teste'),
-                                            content:
-                                                const Text('You are Logged in'),
-                                            actions: [
-                                              TextButton(
-                                                  onPressed: () =>
-                                                      Navigator.pop(
-                                                          context, 'OK'),
-                                                  child: const Text("Aceitar")),
-                                            ],
-                                            elevation: 24.0,
-                                          ));
-                                },
+                                onPressed: dialogContext.showAlertDialog,
                                 style: ElevatedButton.styleFrom(
                                     shadowColor: Colors.transparent,
                                     backgroundColor: Colors.transparent,
