@@ -37,7 +37,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     PagesConfigs screenConfig = PagesConfigs(context);
     Navigation router = Navigation();
-    AlertDialogContext dialogContext = AlertDialogContext(context);
+    AlertDialogContext alertContext = AlertDialogContext(context);
 
     return Scaffold(
         body: GestureDetector(
@@ -174,7 +174,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                     Color.fromARGB(255, 214, 134, 28)
                                   ])),
                               child: ElevatedButton(
-                                onPressed: dialogContext.showAlertDialog,
+                                onPressed: () {
+                                  alertContext.showAlertDialog(
+                                    alertTitle: const Text("Register"),
+                                    alertContent: const Text(
+                                        "You are registered, enjoy your new app ;)"),
+                                  );
+                                },
                                 style: ElevatedButton.styleFrom(
                                     shadowColor: Colors.transparent,
                                     backgroundColor: Colors.transparent,

@@ -135,7 +135,13 @@ class _LoginPageState extends State<LoginPage> {
                                     Color.fromARGB(255, 214, 134, 28)
                                   ])),
                               child: ElevatedButton(
-                                onPressed: dialogContext.showAlertDialog,
+                                onPressed: () {
+                                  dialogContext.showAlertDialog(
+                                    alertTitle: const Text("Login User"),
+                                    alertContent: const Text(
+                                        "You are logged, enjoy the App :)"),
+                                  );
+                                },
                                 style: ElevatedButton.styleFrom(
                                     shadowColor: Colors.transparent,
                                     backgroundColor: Colors.transparent,
